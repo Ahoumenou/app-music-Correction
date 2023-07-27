@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Angular</title>
+</head>
+
+<body>
+    <div [@fadeInAnimation]>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <!-- <a class="navbar-brand" href="#">{{ title }}</a> -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+        <button type="button" class="btn btn-lg btn-danger">You are in an anonymous mode.</button>
+        <div class="row content">
+            <div class="col-sm-4 video">
+                <app-album-details [album]="selectedAlbum" (onPlay)="playParent($event)"></app-album-details>
+            </div>
+            <div class="col-sm-8 music">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+                <app-search (searchAlbums)="search($event)"></app-search>
+                <h1>{{ titlePage }}</h1>
+                <div class="bg-color">
+                    <ng-container *ngIf="albums && albums.length; else notfound">
+                        <div class="card" *ngFor="let album of albums; let i = index">
+                            <div class="card-header">
+                                <p> <strong>{{ i + 1 }}</strong> </p>
+                                <img src="{{album.url}} " alt="image" width="25%" class="image">
+                                <pre>      {{album.ref}} <span *ngIf=" status === album.id"> <span class="section"><p></p><p></p><p></p></span>Play🔊🎼🎶🎵 </span>
+        
+                                    </pre>
+                            </div>
+                            <div class="card-body">
+                                <a routerLink="/album/{{album.id}}" class="text-info"> {{album.title}} </a>
+                                <p class="card-text" *ngIf="album.description"> Détail: {{ album.description}} </p>
+                                <div *ngIf="album.tags" class="tags">
+                                    <span class="tag" *ngFor="let tag of album.tags">{{tag}}</span>
+                                </div>
+                                <a class="btn btn-outline-dark" href="#" role="button">en</a>
+                                <img class="glyph-icon" src="./assets/svg/si-glyph-heart.svg" />
+                                <small> {{album.like}} </small>
+                                <img class="glyph-icon" src="./assets/svg/si-glyph-timer.svg" />
+                                <small> {{ album.duration }} mins </small>
+                                <button type="button" (click)="onSelect(album)" class="btn btn-dark position-relative">
+                                    Details
+                                </button>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-template #notfound>
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <p class="card-text fs-4"> Aucun album trouvé ! 🔥🚿</p>
+                            </div>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

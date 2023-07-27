@@ -1,0 +1,48 @@
+.section{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 3rem;
+    border-radius: 50%;
+    /* animation-iteration-count: infinite; */
+}
+.section>p {
+    background-color: #ddd;
+    max-width: fit-content;
+    height: 1.5rem;
+    padding: .1rem;
+    margin: 5px;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-name: p;
+}
+
+
+.section p:nth-child(1){
+  animation-delay: -0.4s;
+    
+}
+.section p:nth-child(2){
+   animation-delay: -0.2s;
+
+}
+.section p:nth-child(3){  
+    animation-delay:0;
+
+}
+
+
+@keyframes p {
+    0%{
+     transform: scale(1.5);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+
+  
+}

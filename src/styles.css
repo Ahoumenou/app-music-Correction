@@ -1,0 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+ /* variable */
+ :root{
+    --clr-primaire:rgb(46, 107, 230);
+    --clr-second: #fff;
+ }
+ .bg-color{
+    background-color: beige;
+ }
+ .card{
+    background: bisque;
+    backdrop-filter: inherit;
+ }
+
+.collapse{
+    justify-content: space-between;
+    background-color:var(--clr-primaire );
+    backdrop-filter: inherit;
+    color: var(--clr-second);
+}
+.btn{
+    background-color: var(--clr-second);
+    color:  var (--cls-primaire);
+}
+
+.tags{
+    margin-bottom: 1rem;
+
+}
+
+
+.tag{
+    margin-left: 5px;
+    border: 1px solid;
+    padding: .5rem 1rem;
+    border-radius: 5px;
+    background-color: var(--clr-primaire);
+    color: var(--clr-second);
+}
+.form-inline{
+    display: flex;
+    gap: 3rem;
+}
+
+.music{
+    margin: auto;  
+}
+.card:nth-child(2n+2){
+    background-color: antiquewhite;
+}
+
+.card{
+    margin-block: 1rem;
+
+}
+
+.glyph-icon{
+    max-width: 1.5%;
+}
+.image{
+    border: 2px solid blue;
+    border-radius: 5px;
+}
+/* body{
+    background: url(../src/assets/Wallpapers-main/images/00040.png);
+    backdrop-filter: inherit;
+} */
+.video{
+    position: sticky;
+    top: 0;
+}
