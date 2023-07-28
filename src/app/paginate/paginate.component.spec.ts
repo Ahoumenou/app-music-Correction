@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OpenCloseComponent } from './open-close.component';
+import { PaginateComponent } from './paginate.component';
 
-describe('OpenCloseComponent', () => {
-  let component: OpenCloseComponent;
-  let fixture: ComponentFixture<OpenCloseComponent>;
+describe('PaginateComponent', () => {
+  let component: PaginateComponent;
+  let fixture: ComponentFixture<PaginateComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [OpenCloseComponent]
+      declarations: [PaginateComponent]
     });
-    fixture = TestBed.createComponent(OpenCloseComponent);
+    fixture = TestBed.createComponent(PaginateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

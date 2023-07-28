@@ -1,0 +1,26 @@
+.navbar {
+    /* display: block;  */
+    padding: .5rem 1rem;
+    background-color: rgba(0, 0, 255, 0.706);
+    color: #fff;
+    justify-content: space-around;
+    
+}
+
+ a{
+    color:#fff;
+    margin: 2rem;
+
+} 
+ 
+
+.div{
+    color: #fff;
+}
+
+.lien{
+    border: 5px solid #fff;
+    color: black;
+    /* transition-duration: 1s; */
+    /* border: 1px solid blue; */
+}

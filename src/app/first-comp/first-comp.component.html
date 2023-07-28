@@ -1,0 +1,8 @@
+
+<form (ngSubmit)="onButtonClick(formLogin)" #formLogin="ngForm" class="row">
+    <div class="form-group">
+        <input name="texte" ngModel required type="text" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp" placeholder="Entez un texte">
+    </div>
+    <button [disabled]="formLogin.invalid" type="submit" class="btn btn-primary">Submit</button>
+</form>

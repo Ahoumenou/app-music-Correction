@@ -11,7 +11,9 @@ import { SearchComponent } from './search/search.component';
 import { LoginComponent } from './login/login.component';
 import { AlbumDescriptionComponent } from './album-description/album-description.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { OpenCloseComponent } from './open-close/open-close.component';
+import { SecondCompComponent } from './second-comp/second-comp.component';
+import { FirstCompComponent } from './first-comp/first-comp-compenent';
+import { PaginateComponent } from './paginate/paginate.component';
 
 //definition de la constante pour les routes
 /**
@@ -35,9 +37,7 @@ const albumsRoutes : Routes = [
     path:'album/:id', 
     component: AlbumDescriptionComponent
   },
-  { path:'oc',
-   component:OpenCloseComponent
-  },
+
   {
     path:'**', 
     component: PageNotFoundComponent
@@ -53,7 +53,9 @@ const albumsRoutes : Routes = [
     LoginComponent,
     AlbumDescriptionComponent,
     PageNotFoundComponent,
-    OpenCloseComponent
+    FirstCompComponent,
+    SecondCompComponent,
+    PaginateComponent
     
   ],
   imports: [

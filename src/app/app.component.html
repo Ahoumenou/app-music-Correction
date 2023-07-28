@@ -1,17 +1,17 @@
 <div class="container-fuild principal" [@fadeInAnimation]>
   <nav class="navbar navbar-expand-lg navbar-light">
-    <ul class="navbar-nav mr-auto list-group-horizontal">
-      <li class="nav-item active mg-2">
-        <a  routerLink="./albums"> Home </a>
+    <div class="div"> MUSIC 🎼</div>
+    <ul class="navbar-nav mr-auto list-group-horizontal" [@active]>
+      <li class="nav-item active mg-2" routerLinkActive="lien" >
+        <a  routerLink="./albums" > Home </a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item active"  routerLinkActive="lien" >
         <a  routerLink="./login"> Se connecté </a>
       </li>
-      <li class="nav-item active">
-        <a  routerLink="./oc"> Open-Close</a>
-      </li>
-
     </ul>
   </nav>
   <router-outlet></router-outlet>
 </div>
+
+<!-- <app-first-comp></app-first-comp>
+<app-second-comp></app-second-comp> -->
