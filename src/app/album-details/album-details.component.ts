@@ -17,8 +17,8 @@ export class AlbumDetailsComponent implements OnInit, OnChanges {
   @Input() album!: Album; // propriété liée qui sera passée  par le parent
   @Output() onPlay: EventEmitter<Album> = new EventEmitter()
   
-  album_list: List[] = ALBUM_LISTS;
-  albums: Album[] = ALBUMS;
+  // album_list: List[] = ALBUM_LISTS;
+  // albums: Album[] = ALBUMS;
   selectedList! :string[] | undefined ;
 
   constructor(

@@ -22,7 +22,7 @@ export class AlbumsComponent implements OnInit {
   // albums: Album[] = ALBUMS;
   albums: Album[] | undefined = undefined;
   album_list: List[] = ALBUM_LISTS;
-  selectedAlbum!:Album; // je suis sùr qu'une valeur sera passée au moment opportun
+  selectedAlbum!:Album; // je suis sùr qu'une valeur qui sera passée au moment opportun
   selectedList! :string[] | undefined;
   status:string | null = null;
 
@@ -37,12 +37,12 @@ export class AlbumsComponent implements OnInit {
 
    ngOnInit(): void{
     //  this.albums = this.albumService.getAlbums()
-     this.albums = this.albumService
-                            .order(function(a:Album, b:Album){
-                              return a.duration - b.duration
-                            }) // ordonne les albums
-                            .limit(0, this.albumService.count()) // renvoie une sous partie
-                            .getAlbums()// recupère les albums
+     this.albums = this.albumService.paginate(0, this.albumService.paginateNumberPage())
+                            // .order(function(a:Album, b:Album){
+                            //   return a.duration - b.duration
+                            // }) // ordonne les albums
+                            // .limit(0, this.albumService.count()) // renvoie une sous partie
+                            // .getAlbums()// recupère les albums
    }
 
    onSelect(album: Album){
@@ -60,6 +60,11 @@ export class AlbumsComponent implements OnInit {
    if ($event){
     this.albums = $event
    }
+
+  }
+
+  onSetPaginate($event:{ start: number, end:number}){
+  this.albums = this.albumService.paginate($event.start, $event.end)
 
   }
 };

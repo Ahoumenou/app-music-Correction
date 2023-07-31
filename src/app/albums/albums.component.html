@@ -27,7 +27,7 @@
                 <app-search (searchAlbums)="search($event)"></app-search>
                 <h1>{{ titlePage }}</h1>
                 <div class="bg-color">
-            <app-paginate></app-paginate>
+            <app-paginate  (setPaginate)="onSetPaginate($event)"></app-paginate>
                     <ng-container *ngIf="albums && albums.length; else notfound">
                         <div class="card" *ngFor="let album of albums; let i = index">
                             <div class="card-header">

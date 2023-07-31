@@ -65,7 +65,7 @@ export class AlbumService {
   // AlbumService 
   paginate(start: number, end: number): Album[] {
     return this._albums.slice(start, end)
-      .sort((a: Album, b: Album) => b.duration - a.duration)
+      // .sort((a: Album, b: Album) => b.duration - a.duration)
   }
 
   search(word: string): Album[] {
@@ -73,13 +73,14 @@ export class AlbumService {
       return album.title
         .toLowerCase()
         .includes(word.trim().toLowerCase())
-    }) // time() : supprime les espaces avant et après d'un mot
+    }) // trim() : supprime les espaces avant et après d'un mot
   }
 
   searchv2(word: string): Album[] {
     let re = new RegExp(word.trim(), "g");
     return this._albums.filter(album => album.title.match(re))
   }
+
  /**
   * Methode qui renvoye le nombre d'album qu'on 
   * aura par page
@@ -87,6 +88,7 @@ export class AlbumService {
   paginateNumberPage(): number {
     return environment.numberPage;
   }
+  
  /**
   * Méthode qui signale à tous les composant
   * l
