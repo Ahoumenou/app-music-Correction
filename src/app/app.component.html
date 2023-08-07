@@ -9,11 +9,10 @@
         <a  routerLink="./login"> Se connecté </a>
       </li>
     </ul>
+    <p> Time: {{ count }}</p>
   </nav>
-  <router-outlet>
-    <p width="10rem"> Time: {{ count }}</p>
-
-  </router-outlet>
+  <app-audio-player></app-audio-player>
+  <router-outlet> </router-outlet>
 </div>
 
 

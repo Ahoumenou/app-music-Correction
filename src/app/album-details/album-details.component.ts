@@ -38,7 +38,8 @@ export class AlbumDetailsComponent implements OnInit, OnChanges {
   }
   play(album:Album){
     console.log("Play l'album");
-    this.onPlay.emit(album)  
+    this.onPlay.emit(album);
+    this.albumService.switchOn(album);
   }
   
   // shufferAlbum(selectedList: string[]){

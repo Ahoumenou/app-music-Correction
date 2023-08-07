@@ -9,11 +9,12 @@ import { ALBUMS, ALBUM_LISTS } from './mock-albums';
 })
 export class AlbumService {
 
+  subjectAlbum = new Subject<Album>();
   private _albums: Album[] = ALBUMS // _conventien private & protected
   private _albumlists: List[] = ALBUM_LISTS
 
-  // Observable qui notifie aux abonné la page actuelle 
-  sendCurrentNumberPage = new Subject <number>();
+  // Observable qui notifie aux abonnées la page actuelle 
+  sendCurrentNumberPage = new Subject<number>();
 
   constructor() { }
   /**
@@ -65,7 +66,7 @@ export class AlbumService {
   // AlbumService 
   paginate(start: number, end: number): Album[] {
     return this._albums.slice(start, end)
-      // .sort((a: Album, b: Album) => b.duration - a.duration)
+    // .sort((a: Album, b: Album) => b.duration - a.duration)
   }
 
   search(word: string): Album[] {
@@ -81,21 +82,49 @@ export class AlbumService {
     return this._albums.filter(album => album.title.match(re))
   }
 
- /**
-  * Methode qui renvoye le nombre d'album qu'on 
-  * aura par page
-  */
+  /**
+   * Methode qui renvoye le nombre d'album qu'on 
+   * aura par page
+   */
   paginateNumberPage(): number {
     return environment.numberPage;
   }
-  
- /**
-  * Méthode qui signale à tous les composant
-  * l
-  * @param numberPage numéro 
-  */
-  currentPage(numberPage: number){
+
+  /**
+   * Méthode qui signale à tous les composant
+   * l
+   * @param numberPage numéro 
+   */
+  currentPage(numberPage: number) {
     return this.sendCurrentNumberPage.next(numberPage)
   }
+  /**
+   *  Méthode qui permet de changer le status d'un status d'un album à 'on'
+   * @param album : L'album dont le status doit passer à "on"
+   */
+  switchOn(album: Album) {
+    this._albums.forEach(a => {
+      // S'il l'album actuel est celui qu'on joue 
+      if (a.id === album.id) {
+        a.status = 'on';
+        album.status = 'on';
+        // mettre le status à 3    
+      } else {
+        // si non mettre le status à "off"
+        a.status = 'off';
+      }
+    })
+    // Envoyer une notification à tous les abonnées
+    this.subjectAlbum.next(album);
+  }
+  /**
+   *  Méthode qui permet de changer le status d'un status d'un album à 'off'
+   * @param album  : L'album dont le status doit passer à "off"
+   */
+  switchOff(album: Album) {
+     this._albums.forEach(a => a.status = 'off')
+  }
+
+
 
 }

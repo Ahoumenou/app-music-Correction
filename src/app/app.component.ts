@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { interval, map, Observable } from 'rxjs';
+import { interval, map, Observable, take } from 'rxjs';
 import { active, fadeInAnimation } from './animation.module';
 
 @Component({
@@ -19,6 +19,7 @@ export class AppComponent {
 
   ngOnInit(): void{
      this.timerObservable = interval(1000).pipe(
+       take(3600 * 12), // La fonction s'arrete à 12h
       map(num => {
         const hours = Math.floor(num / 3600)
         const minutes = Math.floor((num / 60) )

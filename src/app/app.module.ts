@@ -14,6 +14,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { SecondCompComponent } from './second-comp/second-comp.component';
 import { FirstCompComponent } from './first-comp/first-comp-compenent';
 import { PaginateComponent } from './paginate/paginate.component';
+import { AudioPlayerComponent } from './audio-player/audio-player.component';
 
 //definition de la constante pour les routes
 /**
@@ -55,7 +56,8 @@ const albumsRoutes : Routes = [
     PageNotFoundComponent,
     FirstCompComponent,
     SecondCompComponent,
-    PaginateComponent
+    PaginateComponent,
+    AudioPlayerComponent
     
   ],
   imports: [
