@@ -32,3 +32,13 @@ export class List {
 export interface  SortAlbumCallback {
   (a: Album, b: Album): number
 }
+
+export class Info {
+  constructor(
+    private name : string,
+    private email: string
+  ){
+   this.name = name;
+   this.email = email
+  }
+}

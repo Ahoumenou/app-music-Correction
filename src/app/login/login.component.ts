@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { NgForm , NgModel, FormsModule} from '@angular/forms';
 import { fadeInAnimation } from '../animation.module';
 
 @Component({
@@ -8,7 +8,12 @@ import { fadeInAnimation } from '../animation.module';
   styleUrls: ['./login.component.css'],
   animations: [fadeInAnimation]
 })
-export class LoginComponent {
+export class LoginComponent  {
+private name !: string
+
+constructor(){
+
+}
 
 
   onSubmit(value: NgForm){
