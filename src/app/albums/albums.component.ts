@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Album, List } from 'src/album';
 import { AlbumService } from '../album.service';
 import { fadeInAnimation } from '../animation.module';
-import { ALBUMS, ALBUM_LISTS } from '../mock-albums';
+import { ALBUMS, ALBUM_LISTS } from '../mock-albumsss';
 
 
 
@@ -20,7 +20,7 @@ export class AlbumsComponent implements OnInit {
   titlePage: string = "Page princiaple Albums Music";
   title:string = "app-music";
   // albums: Album[] = ALBUMS;
-  albums: Album[] | undefined = undefined;
+  albums!: Album[] | undefined
   album_list: List[] = ALBUM_LISTS;
   selectedAlbum!:Album; // je suis sùr qu'une valeur qui sera passée au moment opportun
   selectedList! :string[] | undefined;
@@ -37,7 +37,14 @@ export class AlbumsComponent implements OnInit {
 
    ngOnInit(): void{
     //  this.albums = this.albumService.getAlbums()
-     this.albums = this.albumService.paginate(0, this.albumService.paginateNumberPage())
+      this.albumService
+      .paginate(0, this.albumService.paginateNumberPage())
+      .subscribe({
+        next: (alb: Album[]) =>{
+             this.albums = alb
+        }
+      }
+      )
                             // .order(function(a:Album, b:Album){
                             //   return a.duration - b.duration
                             // }) // ordonne les albums
@@ -64,7 +71,10 @@ export class AlbumsComponent implements OnInit {
   }
 
   onSetPaginate($event:{ start: number, end:number}){
-  this.albums = this.albumService.paginate($event.start, $event.end)
+  this.albumService.paginate($event.start, $event.end)
+  .subscribe({
+    next: (alb : Album[]) => this.albums = alb
+  })
 
   }
 };

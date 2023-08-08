@@ -2,7 +2,7 @@ import { Component, OnInit,Input, OnChanges, SimpleChanges, Output, EventEmitter
 import { Album, List } from 'src/album';
 import { AlbumService } from '../album.service';
 import { fadeInAnimation } from '../animation.module';
-import { ALBUMS, ALBUM_LISTS } from '../mock-albums';
+import { ALBUMS, ALBUM_LISTS } from '../mock-albumsss';
 
 @Component({
   selector: 'app-album-details',
@@ -20,6 +20,7 @@ export class AlbumDetailsComponent implements OnInit, OnChanges {
   // album_list: List[] = ALBUM_LISTS;
   // albums: Album[] = ALBUMS;
   selectedList! :string[] | undefined ;
+  songs: string[] | undefined = [];
 
   constructor(
     private albumService: AlbumService
@@ -28,7 +29,9 @@ export class AlbumDetailsComponent implements OnInit, OnChanges {
   // quand il y a de nouveau
   ngOnChanges(): void {
     if (this.album){
-      this.selectedList = this.albumService.getAlbumList(this.album.id)?.list
+    this.albumService.getAlbumList(this.album.id).subscribe(
+      (albumList) => { this.songs = albumList.list}
+    )
     }
   }
 

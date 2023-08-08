@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import {  BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import {  HttpClient, HttpClientModule } from '@angular/common/http'
+
 
 import { AppComponent } from './app.component';
 import { AlbumsComponent } from './albums/albums.component';
@@ -57,7 +59,7 @@ const albumsRoutes : Routes = [
     FirstCompComponent,
     SecondCompComponent,
     PaginateComponent,
-    AudioPlayerComponent
+    AudioPlayerComponent,
     
   ],
   imports: [
@@ -69,6 +71,7 @@ const albumsRoutes : Routes = [
      * utilisé dans le module de routage
      */
     RouterModule.forRoot(albumsRoutes), // chargement des routes dans l'application
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

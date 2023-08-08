@@ -20,11 +20,13 @@ constructor(
 
 ngOnInit(): void{
   // permet de recuperer l'identifiant 
-  const id = this.route.snapshot.paramMap.get('id')
+  const id: string = this.route.snapshot.params["albumId"]
   console.log(id );
   
   // TODO récuperer le détail d'un album
-  this.album = this.albumService.getAlbum(id)
+  this.albumService.getAlbum(id)?.subscribe(album => {
+    this.album = this.album;
+  })
   console.log(this.album);
   
 }

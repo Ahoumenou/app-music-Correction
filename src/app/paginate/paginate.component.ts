@@ -39,7 +39,10 @@ export class PaginateComponent implements OnInit {
   */
   numberPage: number = 0;
   ngOnInit(): void {
-    this.total = this.albumService.count();
+
+    this.albumService.count().subscribe(num => {
+      this.total = num
+    });
     this.numberPage = Math.ceil(this.total / this.perPage);
 
     for (let i = 1; i <= this.numberPage; i++) {
