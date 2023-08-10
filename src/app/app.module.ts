@@ -17,35 +17,11 @@ import { SecondCompComponent } from './second-comp/second-comp.component';
 import { FirstCompComponent } from './first-comp/first-comp-compenent';
 import { PaginateComponent } from './paginate/paginate.component';
 import { AudioPlayerComponent } from './audio-player/audio-player.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AdminModule } from './admin/admin.module';
+import { AlbumComponent } from './admin/album/album.component';
 
-//definition de la constante pour les routes
-/**
- * L'ensemble des routes de notre application
- */
-const albumsRoutes : Routes = [
-  {
-    path:'',
-    redirectTo: '/albums',
-    pathMatch: 'full' 
-  },
-  {
-    path: 'albums',
-    component: AlbumsComponent
-  },
-  {
-    path:'login',
-    component: LoginComponent
-  },
-  {
-    path:'album/:id', 
-    component: AlbumDescriptionComponent
-  },
 
-  {
-    path:'**', 
-    component: PageNotFoundComponent
-  },
-]
 
 @NgModule({
   declarations:[
@@ -66,12 +42,9 @@ const albumsRoutes : Routes = [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    /**
-     * forRoot: méthode utilisée pour définir les routes à
-     * utilisé dans le module de routage
-     */
-    RouterModule.forRoot(albumsRoutes), // chargement des routes dans l'application
-    HttpClientModule
+    HttpClientModule,
+    AdminModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],
