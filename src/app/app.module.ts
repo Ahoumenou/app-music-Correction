@@ -20,6 +20,7 @@ import { AudioPlayerComponent } from './audio-player/audio-player.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module';
 import { AlbumComponent } from './admin/album/album.component';
+import { ShareModule } from './share/share.module';
 
 
 
@@ -34,7 +35,7 @@ import { AlbumComponent } from './admin/album/album.component';
     PageNotFoundComponent,
     FirstCompComponent,
     SecondCompComponent,
-    PaginateComponent,
+    // PaginateComponent,
     AudioPlayerComponent,
     
   ],
@@ -44,7 +45,8 @@ import { AlbumComponent } from './admin/album/album.component';
     BrowserAnimationsModule,
     HttpClientModule,
     AdminModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ShareModule
   ],
   providers: [],
   bootstrap: [AppComponent],

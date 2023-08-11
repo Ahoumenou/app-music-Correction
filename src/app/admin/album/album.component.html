@@ -1,7 +1,8 @@
 <p>
-    <button class="btn btn-dark"> Add Album</button>
+    <button class="btn btn-dark" routerLink="/admin/add"> Add Album</button>
 </p>
 
+<app-paginate  (setPaginate)="onSetPaginate($event)"></app-paginate>
 <table class="table  table-dark">
     <thead>
         <tr>
@@ -19,12 +20,13 @@
             <td>
                 <button type="button" class="btn btn-secondary">update</button>
             </td>
-            <td>{{ album.name}}</td>
+            <td>{{ album.name }}</td>
             <td>{{ album.title }}</td>
-            <td>album.duration</td>
+            <td>{{ album.duration }} secondes</td>
             <td>
                 <button class="btn btn-danger">Delete</button>
             </td>
         </tr>
     </tbody>
 </table>
+<app-paginate  (setPaginate)="onSetPaginate($event)"></app-paginate>

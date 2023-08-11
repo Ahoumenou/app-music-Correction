@@ -3,11 +3,14 @@ import { Injectable } from '@angular/core';
 import { map, Observable, Subject } from 'rxjs';
 import { Album, List, SortAlbumCallback } from 'src/album';
 import { environment } from 'src/environments/environment';
-// import { ALBUMS, ALBUM_LISTS } from './mock-albumsss';
+
+//import lodash
+import * as _ from 'lodash';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AlbumService {
 
   subjectAlbum = new Subject<Album>();
@@ -28,6 +31,7 @@ export class AlbumService {
    */
   getAlbums(): Observable<Album[]> {
     return this.http.get<Album[]>(this._albumsUrl).pipe(
+
       // ordonner les albums par ordre de durée décroissante
       map(albums => {
         return albums.sort(((a: Album, b: Album) => b.duration - a.duration));
@@ -54,7 +58,7 @@ export class AlbumService {
    * @returns la référence sera retourné si elle existe; underfined si l'id n'existe pas 
    * dans la liste.
    */
-  getAlbumList(id: string):  Observable<List> {
+  getAlbumList(id: string): Observable<List> {
     return this.http.get<List>(this._albumsListUrl + '/' + id)
     // return this._albumlists.find(List => List.id === id)
   }
@@ -70,7 +74,7 @@ export class AlbumService {
     // return this._albums.length
   }
 
-  order(callback: SortAlbumCallback): Observable< AlbumService> {
+  order(callback: SortAlbumCallback): Observable<AlbumService> {
 
     return this.http.get<AlbumService>(this._albumsUrl).pipe(
       // map((albums) =>albums.sort(a, b) => a.duration - b.duration)
@@ -85,10 +89,16 @@ export class AlbumService {
   // }
 
   // AlbumService 
-  paginate(start: number, end: number): Observable< Album[]> {
+  paginate(start: number, end: number): Observable<Album[]> {
     return this.http.get<Album[]>(this._albumsUrl).pipe(
-        map((albums) => albums.sort((a, b)=> b.duration - a.duration)
-                              .slice(start, end))
+
+    //   map(albums: Album[]) => {
+    //   const res = -.values(albums);
+
+    // }
+        map((albums) => albums.sort((a, b) => b.duration - a.duration)
+      .slice(start, end))
+      // console.log('get<Album[]>', albums);
     );
     // return this._albums.slice(start, end)
     // .sort((a: Album, b: Album) => b.duration - a.duration)
@@ -110,8 +120,8 @@ export class AlbumService {
         return albums.filter(album => {
           // retourner ceux contenant le string de la variable "word"
           return album.title
-          .toLowerCase()
-          .includes(word.trim().toLowerCase()); // trim() : supprime les espaces avant et après d'un mot
+            .toLowerCase()
+            .includes(word.trim().toLowerCase()); // trim() : supprime les espaces avant et après d'un mot
         })
       })
     )
@@ -152,18 +162,18 @@ export class AlbumService {
    *  Méthode qui permet de changer le status d'un status d'un album à 'on'
    * @param album : L'album dont le status doit passer à "on"
    */
-  switchOn(album: Album):void {
-    album.status  = 'on'
+  switchOn(album: Album): void {
+    album.status = 'on'
     // le code ci-dessous s'exécuste car ony souscrit
     this.http.put<void>(this._albumsUrl + '/' + album.id, album)
-    .subscribe({
-      next: (e)   => e,
-      error: (err) => console.warn(err),
-      complete: ()  => this.subjectAlbum.next(album)
-      
-    })
+      .subscribe({
+        next: (e) => e,
+        error: (err) => console.warn(err),
+        complete: () => this.subjectAlbum.next(album)
+
+      })
     // put('localhost:3000/albums/1)
-    
+
 
     // parcourrir outs les albums
     // this._albums.forEach(a => {
@@ -185,14 +195,14 @@ export class AlbumService {
    * @param album  : L'album dont le status doit passer à "off"
    */
   switchOff(album: Album) {
-  album.status = 'off'
-  /**
-   * renvoi un observable, est ne s'execute
-   * donc qu'à la souscription . Du coup, 
-   * il faut il souscrire , pour l'exécuter
-   */
-  this.http.put<void>(`'${this._albumsUrl}' + '/' + ${album.status}`, album)
-              .subscribe(()=>{});
+    album.status = 'off'
+    /**
+     * renvoi un observable, est ne s'execute
+     * donc qu'à la souscription . Du coup, 
+     * il faut il souscrire , pour l'exécuter
+     */
+    this.http.put<void>(`'${this._albumsUrl}' + '/' + ${album.status}`, album)
+      .subscribe(() => { });
   }
 
 

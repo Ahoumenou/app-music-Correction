@@ -12,9 +12,24 @@ export class AlbumComponent implements OnInit{
 
   constructor( private aS : AlbumService){};
 
-  ngOnInit(){
-    this.aS.getAlbums().subscribe({
-      next: (alb : Album[]) => { this.albums = alb }
-    })
+  ngOnInit(): void{
+    //  this.albums = this.albumService.getAlbums()
+      this.aS
+      .paginate(0, this.aS.paginateNumberPage())
+      .subscribe({
+        next: (alb: Album[]) =>{
+             this.albums = alb
+        }
+      }
+      )  
+
+  }
+ // tslint:disable-next-line: typedef (ignore le type des paramtres)
+ onSetPaginate($event:{ start: number, end:number}){
+  this.aS.paginate($event.start, $event.end)
+  .subscribe({
+    next: (alb : Album[]) => this.albums = alb
+  })
+
   }
 }

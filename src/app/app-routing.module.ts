@@ -50,6 +50,7 @@ const albumsRoutes : Routes = [
      * utilisé dans le module de routage
      */
         RouterModule.forRoot(albumsRoutes), // chargement des routes dans l'application
+        
       ],
       exports : [ RouterModule ]
 })
