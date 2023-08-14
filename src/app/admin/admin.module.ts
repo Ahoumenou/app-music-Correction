@@ -7,9 +7,17 @@ import { RouterModule, Routes } from '@angular/router';
 
 // Dans l'AdminModule définition des routes
 const routes: Routes = [
-  { path: 'admin/add', component: AddAlbumComponent },
-  ]
-  
+  {
+    path: 'admin',
+    component: AlbumComponent
+  },
+  {
+    path: 'admin/add',
+    component: AddAlbumComponent
+  },
+
+]
+
 
 @NgModule({
   declarations: [
@@ -23,6 +31,6 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
 
-  exports: [ AlbumComponent ]
+  exports: [AlbumComponent]
 })
 export class AdminModule { }

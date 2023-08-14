@@ -17,7 +17,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </nav>
-        <button type="button" class="btn btn-lg btn-danger">You are in an anonymous mode.</button>
+        <!-- <button type="button" class="btn btn-lg btn-danger">You are in an anonymous mode.</button> -->
         <div class="row content">
             <div class="col-sm-4 video">
                 <app-album-details [album]="selectedAlbum" (onPlay)="playParent($event)"></app-album-details>
@@ -32,7 +32,7 @@
                         <div class="card" *ngFor="let album of albums; let i = index">
                             <div class="card-header">
                                 <p> <strong>{{ i + 1 }}</strong> </p>
-                                <img src="{{album.url}} " alt="image" width="25%" class="image">
+                                <img src="../../assets/Wallpapers-main/images/00001.png" alt="image" width="25%" class="image">
                                 <pre>      {{album.ref}} <span *ngIf=" status === album.id"> <span class="section"><p></p><p></p><p></p></span>Play🔊🎼🎶🎵 </span>
         
                                     </pre>

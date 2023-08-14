@@ -162,6 +162,7 @@ export class AlbumService {
    *  Méthode qui permet de changer le status d'un status d'un album à 'on'
    * @param album : L'album dont le status doit passer à "on"
    */
+  
   switchOn(album: Album): void {
     album.status = 'on'
     // le code ci-dessous s'exécuste car ony souscrit
@@ -170,7 +171,6 @@ export class AlbumService {
         next: (e) => e,
         error: (err) => console.warn(err),
         complete: () => this.subjectAlbum.next(album)
-
       })
     // put('localhost:3000/albums/1)
 

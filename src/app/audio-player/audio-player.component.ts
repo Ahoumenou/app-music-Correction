@@ -36,7 +36,7 @@ export class AudioPlayerComponent implements OnInit {
         let duration = this.playerAlbum.duration; // durée totale de l'album
         this.total = Math.floor(duration / 120)
                     
-        //
+        // Variable par defaut dans la bar de progression
         this.ratio = (100 / this.total)
         /**Variable représentant le % à ajouter après chaque son dans la bar de progression */
         let step = this.ratio // il faut augmenter le ratio%

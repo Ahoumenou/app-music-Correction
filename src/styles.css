@@ -5,7 +5,7 @@
     --clr-second: #fff;
  }
  .bg-color{
-    background-color: beige;
+    /* background-color: beige; */
  }
  .card{
     background: bisque;
@@ -69,4 +69,8 @@
 .video{
     position: sticky;
     top: 0;
+}
+
+a{
+    text-decoration: none;
 }
