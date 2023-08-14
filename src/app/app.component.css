@@ -20,6 +20,7 @@
 
 .lien{
     border: 5px solid #fff;
+    border-radius:5px;
     color: black;
     /* transition-duration: 1s; */
     /* border: 1px solid blue; */

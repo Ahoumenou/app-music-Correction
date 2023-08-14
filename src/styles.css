@@ -32,8 +32,8 @@
 .tag{
     margin-left: 5px;
     border: 1px solid;
-    padding: .5rem 1rem;
     border-radius: 5px;
+    padding: .5rem 1rem;
     background-color: var(--clr-primaire);
     color: var(--clr-second);
 }
