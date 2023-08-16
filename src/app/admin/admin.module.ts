@@ -4,13 +4,14 @@ import { AlbumComponent } from './album/album.component';
 import { ShareModule } from '../share/share.module';
 import { AddAlbumComponent } from './add-album/add-album.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Dans l'AdminModule définition des routes
 const routes: Routes = [
-  {
-    path: 'admin',
-    component: AlbumComponent
-  },
+  // {
+  //   path: 'admin',
+  //   component: AlbumComponent
+  // },
   {
     path: 'admin/add',
     component: AddAlbumComponent
@@ -28,6 +29,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     ShareModule,
+    // ReactiveFormsModule, // je n'ai plus besoin de redeclarer ReactiveFormsModule puisqu'il est deja dans shareModule et ce dernier est importé ici
     RouterModule.forChild(routes)
   ],
 

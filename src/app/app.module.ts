@@ -46,7 +46,7 @@ import { FormRelatifComponent } from './form-reactif/form-relatif.component';
   imports: [
     BrowserModule,
     FormsModule, 
-    ReactiveFormsModule, // utilisation du formulaire Réactif
+    // ReactiveFormsModule, // utilisation du formulaire Réactif
     BrowserAnimationsModule,
     HttpClientModule,
     AdminModule,

@@ -1,3 +1,6 @@
+<p *ngIf="message" class="alert alert-success position-relative" > {{message}} 
+    <button (click)="message = undefined" class="btn btn-close end-0 position-absolute" ></button>
+</p>
 <p>
     <button class="btn btn-dark" routerLink="/admin/add"> Add Album</button>
 </p>
